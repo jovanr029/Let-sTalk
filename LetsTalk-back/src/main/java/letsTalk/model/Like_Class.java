@@ -1,9 +1,7 @@
 package letsTalk.model;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 import lombok.Getter;
@@ -14,12 +12,10 @@ import lombok.Setter;
 @Getter @Setter @NoArgsConstructor
 public class Like_Class  {
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY )
-	private Long likeId;
+	@EmbeddedId
+	private LikeIdEmbeddable id;	
 	@ManyToOne(fetch = FetchType.EAGER)
 	private Post post;
 	@ManyToOne(fetch = FetchType.EAGER)
 	private User user;
-	
 }

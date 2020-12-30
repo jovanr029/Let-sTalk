@@ -11,6 +11,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import letsTalk.model.Comment;
+import letsTalk.model.LikeIdEmbeddable;
 import letsTalk.model.Like_Class;
 import letsTalk.model.Post;
 import letsTalk.model.User;
@@ -119,10 +120,28 @@ public class TestData {
 		commentService.save(comment2);	
 		
 		Like_Class like1 = new Like_Class();
-		like1.setPost(post1);
+		like1.setId(new LikeIdEmbeddable(user, post1));
 		like1.setUser(user);
+		like1.setPost(post1);
 		likeService.save(like1);
+
+		Like_Class like2 = new Like_Class();
+		like2.setId(new LikeIdEmbeddable(user1, post1));
+		like2.setUser(user1);
+		like2.setPost(post1);
+		likeService.save(like2);
 		
+		Like_Class like3 = new Like_Class();
+		like3.setId(new LikeIdEmbeddable(user, post2));
+		like3.setUser(user);
+		like3.setPost(post2);
+		likeService.save(like3);
+		
+		Like_Class like4 = new Like_Class();
+		like4.setId(new LikeIdEmbeddable(user1, post2));
+		like4.setUser(user);
+		like4.setPost(post2);
+		likeService.save(like4);
 		
 	}
 	
