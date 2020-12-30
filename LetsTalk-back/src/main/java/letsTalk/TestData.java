@@ -139,7 +139,7 @@ public class TestData {
 		
 		Like_Class like4 = new Like_Class();
 		like4.setId(new LikeIdEmbeddable(user1, post2));
-		like4.setUser(user);
+		like4.setUser(user1);
 		like4.setPost(post2);
 		likeService.save(like4);
 		
